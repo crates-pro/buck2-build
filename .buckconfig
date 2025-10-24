@@ -19,9 +19,9 @@ prelude = bundled
 target_platform_detector_spec = target:root//...->root//platforms:rust_default
 
 [buck2_re_client]
-action_cache_address = grpc://172.17.0.1:30051
-engine_address = grpc://172.17.0.1:30051
-cas_address = grpc://172.17.0.1:30051
+action_cache_address = grpc://10.42.0.1:30051
+engine_address = grpc://10.42.0.1:30051
+cas_address = grpc://10.42.0.1:30051
 tls = false
 instance_name = main
 
