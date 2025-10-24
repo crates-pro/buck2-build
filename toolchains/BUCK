@@ -20,7 +20,7 @@ _rustc_binary_flags = [
 
 rust_toolchain_from_sysroot_path(
     name="rust",
-    sysroot_path = "/home/rust/.rustup/toolchains/nightly-2025-06-20-x86_64-unknown-linux-gnu",
+    sysroot_path = "/home/rust/.rustup/toolchains/nightly-2025-08-01-x86_64-unknown-linux-gnu",
     rustc_binary_flags = _rustc_binary_flags,
     default_edition="2024",
     visibility = ["PUBLIC"],

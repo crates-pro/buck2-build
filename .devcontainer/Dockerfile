@@ -1,4 +1,4 @@
-FROM almalinux:9.6-20250825
+FROM almalinux:9.6-20250909
 
 # Install tools and dependencies
 # Reindeer: openssl-devel
@@ -28,13 +28,13 @@ RUN useradd -m -s /bin/bash -u $USER_UID $USERNAME \
     && usermod -aG docker $USERNAME
 USER $USERNAME
 
-# Install Rust with nightly-2025-06-20 (required by Buck2) toolchain
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain nightly-2025-06-20 -y
+# Install Rust with nightly-2025-08-01 (required by Buck2) toolchain
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain nightly-2025-08-01 -y
 ENV PATH="/home/$USERNAME/.cargo/bin:$PATH"
 
 # Install Buck2 and Reindeer
-RUN cargo install --git https://github.com/facebook/buck2.git --rev 1055974 buck2
-RUN cargo install --git https://github.com/facebookincubator/reindeer.git --rev 1a71dbe reindeer
+RUN cargo install --git https://github.com/facebook/buck2.git --rev 172ca2e buck2
+RUN cargo install --git https://github.com/facebookincubator/reindeer.git --rev 1f73859 reindeer
 
 # Create and set permissions for workspace directory
 USER root
