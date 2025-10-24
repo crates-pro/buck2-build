@@ -8,7 +8,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 50Gi
+      storage: 100Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: nativelink-worker
-          image: localhost:30500/nativelink-worker:20250829-2146
+          image: localhost:30500/nativelink-worker:20251024-0001
           imagePullPolicy: Always
           volumeMounts:
             - name: nativelink-storage
