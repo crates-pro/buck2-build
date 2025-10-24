@@ -72,20 +72,39 @@ If versions differ, update `./run.sh`.
 Check that these package versions in `./BUCK` match:
 
 ```
-bzip2-sys==0.1.13+1.0.8
-libgit2-sys==0.18.1+1.9.0
 libssh2-sys==0.3.1
-lzma-sys==0.1.20
 rdkafka-sys==4.9.0+2.10.0
 ring==0.17.14
-zstd-sys==2.0.15+zstd.1.5.7
 ```
 
 If versions differ, update the corresponding `./fixups/<package name>/fixups.toml`.
 
 ### Step 3: Verify `./fixups/*/fixups.toml` for system software versions
 
-The fixup file `./fixups/openssl/fixups.toml` relies on the version number of the OpenSSL library installed in the remote execution container. To ensure compatibility, execute `openssl version` command within the remote execution container and verify that the version matches the one specified in the fixup file.
+The following fixup files depend on system libraries in the remote execution container:
+
+```
+bzip2-sys==0.1.13+1.0.8
+libgit2-sys==0.16.2+1.7.2
+openssl-sys (version varies)
+```
+
+Verify system library versions match the fixup files:
+
+```bash
+docker run --rm -it localhost:30500/almalinux:9.6-cratespro-20251023 /bin/bash
+
+# Inside container:
+bzip2 --version          # Expected: 1.0.8
+rpm -q libgit2-devel     # Expected: 1.7.2
+openssl version          # Expected: 3.2.2
+```
+
+If versions don't match:
+
+1. Update `Cargo.toml` dependencies to match system library versions
+2. Update corresponding `./fixups/<package name>/fixups.toml` files
+3. Do not modify system library versions in the container image
 
 ### Step 4: Update patches
 

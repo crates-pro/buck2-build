@@ -1,6 +1,14 @@
 cargo_env = true
+cfgs = [
+    "osslconf=\"OPENSSL_NO_EC2M\"",
+    "osslconf=\"OPENSSL_NO_SM4\""
+]
+rustc_flags = [
+    "-lssl",
+    "-lcrypto",
+]
 
 [buildscript.run.env]
-OPENSSL_LIB_DIR = "/usr/local/ssl/lib64"
-OPENSSL_INCLUDE_DIR = "/usr/local/ssl/include"
+OPENSSL_LIB_DIR = "/usr/lib64"
+OPENSSL_INCLUDE_DIR = "/usr/include"
 OPT_LEVEL = "3"

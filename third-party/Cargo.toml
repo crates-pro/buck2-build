@@ -27,22 +27,23 @@ bzip2-sys = { version = "0.1.13+1.0.8", features = ["static"] }
 cargo_metadata = "0.18" # !
 cargo_toml = "0.22"
 chrono = { version = "0.4", features = ["clock"] }
-clap = { package = "clap", version = "4.5", features = ["derive"] }
+clap = { package = "clap", version = "4.5", features = ["derive", "env"] }
 clap-3 = { package = "clap", version = "3.2", features = ["derive"] }
 crossbeam-utils = "0.8"
-csv = "1.3"
+csv = "1.4"
 dotenvy = "0.15"
 env_logger = "0.11"
 filetime = "0.2"
 futures = "0.3"
 futures-util = "0.3"
-git2 = "0.20"
+git2 = "0.18" # !
 hyper = { version = "1.7", features = ["full"] }
 jobserver = "0.1"
 lalrpop = "0.22"
 lalrpop-util = { version = "0.22", features = ["lexer", "unicode"] }
 lazy_static = "1.5"
 libc = "0.2"
+libgit2-sys = "0.16.2+1.7.2" # !
 libsqlite3-sys = { version = "0.30", features = ["bundled"] } # !
 log = "0.4"
 mockito = "1.7"
@@ -56,9 +57,10 @@ pretty_env_logger = "0.5"
 rayon = "1.11"
 rdkafka = { version = "0.38", features = ["cmake-build"] }
 redis = "0.32"
-regex = "1.11"
-reqwest = { version = "0.12", features = ["json"] }
+regex = "1.12"
+reqwest = { version = "0.12", features = ["blocking", "json"] }
 sanitize-filename = "0.6"
+scraper = "0.24"
 sea-orm = { version = "1.1", features = [
     "sqlx-postgres",
     "runtime-tokio-rustls",
@@ -72,9 +74,10 @@ ssh2 = "0.9"
 structopt = { version = "0.3", default-features = false }
 tempfile = "3.21"
 thiserror = "2.0"
-tokio = { version = "1.47", features = ["full"] }
+tokio = { version = "1.48", features = ["full"] }
 tokio-postgres = { version = "0.7", features = ["with-chrono-0_4"] }
-toml = "0.9"
+tokio-process = "0.2"
+toml = "0.8" # !
 tower = "0.5"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
@@ -85,7 +88,7 @@ utoipa-swagger-ui = { version = "=9.0.2", features = [
 ] }
 uuid = { version = "1.16", features = ["v4", "fast-rng", "macro-diagnostics"] }
 walkdir = "2.5"
-zip = "4.5"
+zip = "4.6" # !
 
 # Local patches - typically git references
 [patch.crates-io]

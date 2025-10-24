@@ -1,3 +1,8 @@
+cfgs = [
+    "osslconf=\"OPENSSL_NO_EC2M\"",
+    "osslconf=\"OPENSSL_NO_SM4\""
+]
+
 [buildscript.run.env]
 # See https://github.com/sfackler/rust-openssl/blob/538a5cb737e8d83085553cac01643820dc7ff205/openssl/build.rs#L127
 # OpenSSL version number 0x3_02_02_00_0 corresponds to OpenSSL 3.2.2, which is installed in the remote execution worker

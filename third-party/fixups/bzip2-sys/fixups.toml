@@ -1,7 +1,5 @@
-rustc_flags = [
-    "-Lnative=$(location :bzip2-sys-0.1.13+1.0.8-build-script-run[out_dir])/lib",
-    "-lstatic=bz2",
-]
+buildscript.run = false
 
-[buildscript.run.env]
-OPT_LEVEL = "3"
+rustc_flags = [
+    "-lbz2",
+]
